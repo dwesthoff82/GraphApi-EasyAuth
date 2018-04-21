@@ -1,0 +1,16 @@
+
+WebApplication1/.vs/config/applicationhost.config
+WebApplication1/.vs/WebApplication1/v15/.suo
+WebApplication1/.vs/WebApplication1/v15/Server/sqlite3/storage.ide
+WebApplication1/.vs/WebApplication1/v15/Server/sqlite3/db.lock
+WebApplication1/packages/Antlr.3.4.1.9004/Antlr.3.4.1.9004.nupkg
+WebApplication1/packages/Antlr.3.4.1.9004/lib/Antlr3.Runtime.dll
+WebApplication1/packages/Antlr.3.4.1.9004/lib/Antlr3.Runtime.pdb
+WebApplication1/packages/bootstrap.3.0.0/bootstrap.3.0.0.nupkg
+WebApplication1/packages/bootstrap.3.0.0/content/Content/bootstrap.css
+WebApplication1/packages/bootstrap.3.0.0/content/Content/bootstrap.min.css
+*.force
+WebApplication1/WebApplication1/obj/Debug/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+WebApplication1/WebApplication1/obj/Debug/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+WebApplication1/WebApplication1/obj/Debug/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+*.dll
