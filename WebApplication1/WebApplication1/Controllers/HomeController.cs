@@ -30,7 +30,7 @@ namespace WebApplication1.Controllers
                 var result = authenticationContext.AcquireTokenAsync(targetResource, clientCredentials, userAssertion).Result;
                 HttpClient client = new HttpClient();
 
-                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", this.Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"]);
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", result.AccessToken);
                 var resu =client.GetAsync("https://graph.microsoft.com/v1.0/me/").Result;
 
                 ViewBag.Message = resu;
