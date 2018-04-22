@@ -38,7 +38,7 @@ namespace WebApplication1.Controllers
             }
             catch (Exception ex)
             {
-                ViewBag.Message =   ex.ToString();
+                ViewBag.Message =   ex.ToString() + " Token used:"+this.Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"];
 
             }
             return View();
