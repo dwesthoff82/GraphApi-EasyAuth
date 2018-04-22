@@ -23,18 +23,18 @@ namespace WebApplication1.Controllers
 
                 UserAssertion userAssertion = new UserAssertion(this.Request.Headers["X-MS-TOKEN-AAD-ID-TOKEN"], "Bearer", userName);
 
-              //  AuthenticationContext authenticationContext = new AuthenticationContext("https://login.windows.net/" + tenant);
+               AuthenticationContext authenticationContext = new AuthenticationContext("https://login.windows.net/" + tenant);
 
                 
-             //   ClientCredential clientCredentials = new ClientCredential(appClientID, appKey);
+                ClientCredential clientCredentials = new ClientCredential(appClientID, appKey);
 
-              //  var result = authenticationContext.AcquireTokenAsync(targetResource, clientCredentials, userAssertion).Result;
-                HttpClient client = new HttpClient();
+                var result = authenticationContext.AcquireTokenAsync(targetResource, clientCredentials, userAssertion).Result;
+               // HttpClient client = new HttpClient();
 
-                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", this.Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"]);
-                ViewBag.Message =client.GetAsync("https://graph.microsoft.com/v1.0/me/").Result;
+              //  client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", this.Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"]);
+               // ViewBag.Message =client.GetAsync("https://graph.microsoft.com/v1.0/me/").Result;
 
-                //ViewBag.Message = result.UserInfo.DisplayableId + "Has been authorized for " + targetResource;
+                ViewBag.Message = result.UserInfo.DisplayableId + "Has been authorized for " + targetResource;
             }
             catch (Exception ex)
             {
