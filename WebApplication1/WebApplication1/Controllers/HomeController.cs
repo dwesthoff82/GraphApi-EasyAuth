@@ -1,11 +1,6 @@
 ﻿using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Security.Claims;
-using System.ServiceModel.Description;
-using System.Web;
 using System.Web.Mvc;
 
 namespace WebApplication1.Controllers
