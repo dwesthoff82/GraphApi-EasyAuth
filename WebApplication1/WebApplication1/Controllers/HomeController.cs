@@ -21,12 +21,13 @@ namespace WebApplication1.Controllers
 
                 var userName = ClaimsPrincipal.Current.Identity.Name;
 
-                UserAssertion userAssertion = new UserAssertion(this.Request.Headers["X-MS-TOKEN-AAD-ID-TOKEN"], "Bearer", userName);
+                UserAssertion userAssertion = new UserAssertion(this.Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"], "Bearer", userName);
                
                AuthenticationContext authenticationContext = new AuthenticationContext("https://login.windows.net/" + tenant);
-                  ClientCredential clientCredentials = new ClientCredential(appClientID, appKey);
-                ClientAssertion ca = new ClientAssertion(appClientID, appKey);
-                var result = authenticationContext.AcquireTokenSilentAsync(targetResource, ca, new UserIdentifier(userName,UserIdentifierType.RequiredDisplayableId)).Result;
+               
+                ClientCredential clientCredentials = new ClientCredential(appClientID, appKey);
+
+                var result = authenticationContext.AcquireTokenAsync(targetResource, clientCredentials, userAssertion).Result;
                 HttpClient client = new HttpClient();
 
                 client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", this.Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"]);
