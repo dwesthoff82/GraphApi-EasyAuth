@@ -60,3 +60,9 @@ WebApplication1/packages/Microsoft.Net.Compilers.2.4.0/tools/vbc.exe.config
 WebApplication1/packages/Microsoft.Net.Compilers.2.4.0/tools/VBCSCompiler.exe.config
 WebApplication1/WebApplication1/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 *.cache
+WebApplication1/WebApplication1/bin/Microsoft.IdentityModel.Clients.ActiveDirectory.xml
+WebApplication1/WebApplication1/bin/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.xml
+WebApplication1/WebApplication1/obj/Debug/WebApplication1.csprojResolveAssemblyReference.cache
+WebApplication1/WebApplication1/WebApplication1.csproj
+WebApplication1/WebApplication1/obj/Debug/WebApplication1.csprojResolveAssemblyReference.cache
+WebApplication1/WebApplication1/obj/Debug/WebApplication1.csprojResolveAssemblyReference.cache
