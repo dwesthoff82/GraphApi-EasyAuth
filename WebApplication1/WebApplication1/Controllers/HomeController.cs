@@ -24,7 +24,7 @@ namespace WebApplication1.Controllers
                 UserAssertion userAssertion = new UserAssertion(this.Request.Headers["X-MS-TOKEN-AAD-ID-TOKEN"], "Bearer", userName);
 
                AuthenticationContext authenticationContext = new AuthenticationContext("https://login.windows.net/" + tenant);
-
+               var maybe=  authenticationContext.AcquireTokenSilentAsync(appClientID, appClientID);
                 
                 ClientCredential clientCredentials = new ClientCredential(appClientID, appKey);
 
