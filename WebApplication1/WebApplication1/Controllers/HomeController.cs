@@ -21,7 +21,7 @@ namespace WebApplication1.Controllers
 
                 var userName = ClaimsPrincipal.Current.Identity.Name;
 
-                UserAssertion userAssertion = new UserAssertion(this.Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"], "Bearer", userName);
+                UserAssertion userAssertion = new UserAssertion(this.Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"], "bearer", userName);
                
                AuthenticationContext authenticationContext = new AuthenticationContext("https://login.windows.net/" + tenant);
                
