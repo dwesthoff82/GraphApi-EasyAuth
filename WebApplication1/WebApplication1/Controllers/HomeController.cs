@@ -33,7 +33,7 @@ namespace WebApplication1.Controllers
             }
             catch (Exception ex)
             {
-                ViewBag.Message = ex.ToString();
+                ViewBag.Message = Newtonsoft.Json.JsonConvert.SerializeObject(this.Request.Headers);//   ex.ToString();
 
             }
             return View();
