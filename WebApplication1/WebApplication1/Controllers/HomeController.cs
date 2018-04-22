@@ -1,4 +1,5 @@
 ﻿using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using System;
 using System.Configuration;
 using System.Security.Claims;
 using System.Web.Mvc;
@@ -10,24 +11,31 @@ namespace WebApplication1.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var tenant  = ConfigurationManager.AppSettings["Tenant"];
-            var appKey = ConfigurationManager.AppSettings["AppKey"];
-            var appClientID = ConfigurationManager.AppSettings["ClientId"];
-            var targetResource = ConfigurationManager.AppSettings["TargetResource"];
+            try
+            {
+                var tenant = ConfigurationManager.AppSettings["Tenant"];
+                var appKey = ConfigurationManager.AppSettings["AppKey"];
+                var appClientID = ConfigurationManager.AppSettings["ClientId"];
+                var targetResource = ConfigurationManager.AppSettings["TargetResource"];
 
-            var userName = ClaimsPrincipal.Current.Identity.Name;
+                var userName = ClaimsPrincipal.Current.Identity.Name;
 
-            UserAssertion userAssertion = new UserAssertion(this.Request.Headers["X-MS-TOKEN-AAD-ID-TOKEN"], "Bearer", userName);
+                UserAssertion userAssertion = new UserAssertion(this.Request.Headers["X-MS-TOKEN-AAD-ID-TOKEN"], "Bearer", userName);
 
-            AuthenticationContext authenticationContext = new AuthenticationContext("https://login.windows.net/"+tenant);
+                AuthenticationContext authenticationContext = new AuthenticationContext("https://login.windows.net/" + tenant);
 
 
-            ClientCredential clientCredentials = new ClientCredential(appClientID, appKey);
+                ClientCredential clientCredentials = new ClientCredential(appClientID, appKey);
 
-            var result= authenticationContext.AcquireTokenAsync(targetResource, clientCredentials, userAssertion).Result;
+                var result = authenticationContext.AcquireTokenAsync(targetResource, clientCredentials, userAssertion).Result;
 
-            ViewBag.Message =result.UserInfo.DisplayableId + "Has been authorized for " + targetResource;
+                ViewBag.Message = result.UserInfo.DisplayableId + "Has been authorized for " + targetResource;
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = ex.ToString();
 
+            }
             return View();
         }
 
