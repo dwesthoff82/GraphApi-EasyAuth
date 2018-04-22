@@ -24,7 +24,7 @@ namespace WebApplication1.Controllers
 
                 AuthenticationContext authenticationContext = new AuthenticationContext("https://login.windows.net/" + tenant);
 
-
+                
                 ClientCredential clientCredentials = new ClientCredential(appClientID, appKey);
 
                 var result = authenticationContext.AcquireTokenAsync(targetResource, clientCredentials, userAssertion).Result;
