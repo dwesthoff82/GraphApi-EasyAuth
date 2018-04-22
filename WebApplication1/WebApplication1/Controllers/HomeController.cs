@@ -11,8 +11,8 @@ namespace WebApplication1.Controllers
         [Authorize]
         public ActionResult Index()
         {
-           Console.Write("Token=" +this.Request.Headers["X-MS-TOKEN-AAD-ID-TOKEN"]);
-
+          
+           ViewBag.Message = "Token=" + this.Request.Headers["X-MS-TOKEN-AAD-ID-TOKEN"];
 
 
             return View();
