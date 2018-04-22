@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Security.Claims;
+using System.ServiceModel.Description;
 using System.Web;
 using System.Web.Mvc;
 
@@ -11,9 +15,23 @@ namespace WebApplication1.Controllers
         [Authorize]
         public ActionResult Index()
         {
-          
-           ViewBag.Message = "Token=" + this.Request.Headers["X-MS-TOKEN-AAD-ID-TOKEN"];
+            var tenant  = ConfigurationManager.AppSettings["Tenant"];
+            var appKey = ConfigurationManager.AppSettings["AppKey"];
+            var appClientID = ConfigurationManager.AppSettings["ClientId"];
+            var targetResource = ConfigurationManager.AppSettings["TargetResource"];
 
+            var userName = ClaimsPrincipal.Current.Identity.Name;
+
+            UserAssertion userAssertion = new UserAssertion(this.Request.Headers["X-MS-TOKEN-AAD-ID-TOKEN"], "Bearer", userName);
+
+            AuthenticationContext authenticationContext = new AuthenticationContext("https://login.windows.net/"+tenant);
+
+
+            ClientCredential clientCredentials = new ClientCredential(appClientID, appKey);
+
+            var result= authenticationContext.AcquireTokenAsync(targetResource, clientCredentials, userAssertion).Result;
+
+            ViewBag.Message =result.UserInfo.DisplayableId + "Has been authorized for " + targetResource;
 
             return View();
         }

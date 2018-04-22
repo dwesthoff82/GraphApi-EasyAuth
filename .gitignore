@@ -51,3 +51,12 @@ WebApplication1/WebApplication1/obj/Debug/WebApplication1.csproj.CopyComplete
 WebApplication1/WebApplication1/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 WebApplication1/WebApplication1/obj/Debug/WebApplication1.csproj.FileListAbsolute.txt
 WebApplication1/.vs/WebApplication1/v15/Server/sqlite3/storage.ide-wal
+WebApplication1/packages/Microsoft.Net.Compilers.2.4.0/build/Microsoft.Net.Compilers.props
+WebApplication1/packages/Microsoft.Net.Compilers.2.4.0/tools/csc.exe.config
+WebApplication1/packages/Microsoft.Net.Compilers.2.4.0/tools/csi.exe.config
+WebApplication1/packages/Microsoft.Net.Compilers.2.4.0/tools/Microsoft.CSharp.Core.targets
+WebApplication1/packages/Microsoft.Net.Compilers.2.4.0/tools/Microsoft.VisualBasic.Core.targets
+WebApplication1/packages/Microsoft.Net.Compilers.2.4.0/tools/vbc.exe.config
+WebApplication1/packages/Microsoft.Net.Compilers.2.4.0/tools/VBCSCompiler.exe.config
+WebApplication1/WebApplication1/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+*.cache
