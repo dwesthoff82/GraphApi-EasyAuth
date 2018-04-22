@@ -33,7 +33,7 @@ namespace WebApplication1.Controllers
                 client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", result.AccessToken);
                 var resu =client.GetAsync("https://graph.microsoft.com/v1.0/me/").Result;
 
-                ViewBag.Message = resu;
+                ViewBag.Message = resu.Content.ReadAsStringAsync().Result;
             }
             catch (Exception ex)
             {
